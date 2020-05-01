@@ -1,0 +1,43 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Control: GET</title>
+</head>
+<body>
+<form action="/books-list"  method="post" >
+    Author: <input name="author">
+    <br />
+    Ibsn: <input name="ibsn">
+    <br />
+    Name: <input name="name">
+    <br />
+    <button type="submit">Send</button>
+</form>
+
+<form action="/filter2"  method="post" >
+    Author: <input name="name">
+    <button type="submit">Send</button>
+</form>
+
+<tr th:each="book: ${word}">
+    <td th:text="${book}"></td>
+</tr>
+<br>
+<br>
+
+<tr th:each="book: ${books}">
+    <a th:href="@{'/book/' + ${book.getId()}}" th:text="${book.getId()}"></a>
+    <span style='padding-left:10px;'> </span>
+    <td th:text="${book.getName()}"></td>
+    <span style='padding-left:10px;'> </span>
+    <td th:text="${book.getIbsn()}"></td>
+    <span style='padding-left:10px;'> </span>
+    <td th:text="${book.getAuthor()}"></td>
+    <br>
+
+</tr>
+
+
+
+
+</body>
+</html>
